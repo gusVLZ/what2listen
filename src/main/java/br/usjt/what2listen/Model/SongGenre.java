@@ -2,11 +2,15 @@ package br.usjt.what2listen.Model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class Song_x_Genre {
+@Entity
+@Table(name="song_x_genre")
+public class SongGenre {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -17,11 +21,11 @@ public class Song_x_Genre {
 	private Date updated_at = new Date();
 
 	
-	public Song_x_Genre() {
+	public SongGenre() {
 
 	}
 
-	public Song_x_Genre(Integer id, Integer id_song, Integer id_genre, boolean active, Date created_at,
+	public SongGenre(Integer id, Integer id_song, Integer id_genre, boolean active, Date created_at,
 			Date updated_at) {
 		super();
 		this.id = id;
@@ -80,21 +84,5 @@ public class Song_x_Genre {
 	public void setUpdated_at(Date updated_at) {
 		this.updated_at = updated_at;
 	}
-
-	
-	
-	
-	
-	
-		
-	
-	
-	
-	
-	
-	
-	
-	
-
 
 }

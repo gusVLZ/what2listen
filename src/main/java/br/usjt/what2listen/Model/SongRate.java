@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
+@Table(name="song_rate")
 public class SongRate {
 	
 	@Id

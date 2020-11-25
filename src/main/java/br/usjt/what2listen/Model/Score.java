@@ -11,9 +11,9 @@ public class Score {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String id_user;
-	private String id_sxg;
-	private String intensity;
+	private Integer id_user;
+	private Integer id_sxg;
+	private Integer intensity;
 	private Date created_at = new Date();
 	private Date updated_at = new Date();
 	private boolean active = true;
@@ -21,7 +21,13 @@ public class Score {
 	public Score() {
 	}
 
-	public Score(Integer id, String id_user, String id_sxg, String intensity, Date created_at, Date updated_at, boolean active) {
+	public Score(Integer id, Integer id_user, Integer id_sxg, Integer intensity) {
+		this.id = id;
+		this.id_user = id_user;
+		this.id_sxg = id_sxg;
+		this.intensity = intensity;
+	}
+	public Score(Integer id, Integer id_user, Integer id_sxg, Integer intensity, Date created_at, Date updated_at, boolean active) {
 		this.id = id;
 		this.id_user = id_user;
 		this.id_sxg = id_sxg;
@@ -39,27 +45,27 @@ public class Score {
 		this.id = id;
 	}
 
-	public String getId_user() {
+	public Integer getId_user() {
 		return this.id_user;
 	}
 
-	public void setId_user(String id_user) {
+	public void setId_user(Integer id_user) {
 		this.id_user = id_user;
 	}
 
-	public String getId_sxg() {
+	public Integer getId_sxg() {
 		return this.id_sxg;
 	}
 
-	public void setId_sxg(String id_sxg) {
+	public void setId_sxg(Integer id_sxg) {
 		this.id_sxg = id_sxg;
 	}
 
-	public String getIntensity() {
+	public Integer getIntensity() {
 		return this.intensity;
 	}
 
-	public void setIntensity(String intensity) {
+	public void setIntensity(Integer intensity) {
 		this.intensity = intensity;
 	}
 
@@ -96,17 +102,17 @@ public class Score {
 		return this;
 	}
 
-	public Score id_user(String id_user) {
+	public Score id_user(Integer id_user) {
 		this.id_user = id_user;
 		return this;
 	}
 
-	public Score id_sxg(String id_sxg) {
+	public Score id_sxg(Integer id_sxg) {
 		this.id_sxg = id_sxg;
 		return this;
 	}
 
-	public Score intensity(String intensity) {
+	public Score intensity(Integer intensity) {
 		this.intensity = intensity;
 		return this;
 	}
