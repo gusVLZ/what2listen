@@ -24,6 +24,11 @@ public class SongRateController {
 	    void addSongRate(@RequestBody SongRate songrate) {
 	    	System.out.println(songrate);
 	    	SongRateRepository.save(songrate);
-	    }	    
+	    }
+
+		@GetMapping("/topSongRate")
+	    List<?> getTopSongRate() {
+	    	return (List<?>) SongRateRepository.getBestRatedSongs();
+	    }	    	    
 }
 

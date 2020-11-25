@@ -517,7 +517,11 @@ public class MainFrame extends JFrame {
                 "Date", "Item", "Location", "Completed"
             }
         ) {
-            Class[] types = new Class [] {
+            /**
+             *
+             */
+            private static final long serialVersionUID = 1L;
+            Class[] types = new Class[] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
 
