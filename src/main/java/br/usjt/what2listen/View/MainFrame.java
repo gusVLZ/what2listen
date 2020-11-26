@@ -2,9 +2,9 @@ package br.usjt.what2listen.View;
 
 import javax.swing.JFrame;
 
-
-import java.awt.Color;
+import java.awt.*;
 import javax.swing.JPanel;
+
 
 public class MainFrame extends JFrame {
 
@@ -17,22 +17,20 @@ public class MainFrame extends JFrame {
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     public MainFrame(){
-        /*JFrame jf = new JFrame("What 2 Listen - EngComp");
+        JFrame jf = new JFrame("What 2 Listen - EngComp");
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setSize(800, 600);
         jf.setLocationRelativeTo(null);
 
+        jf.setContentPane(Login.loginView());
 
-        JLabel label = new JLabel("Hello World");
-        jf.getContentPane().add(label);
+        jf.setVisible(true);
 
-        jf.setVisible(true);*/
-
-        initComponents();
-        setColor(btn_1); 
-        ind_1.setOpaque(true);
+        //initComponents();
+        //setColor(btn_1); 
+        /*ind_1.setOpaque(true);
         resetColor(new JPanel[]{btn_2,btn_3,btn_4}, new JPanel[]{ind_2,ind_3, ind_4});
-        jProgressBar1.setValue(50);
+        jProgressBar1.setValue(50);*/
     }
 
     /**
