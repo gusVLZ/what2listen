@@ -29,8 +29,8 @@ public class UserController {
 		userRepository.save(user);
 	}
 
-	/*@GetMapping("/FavGenres/{idUser}")
+	@GetMapping("/FavGenres/{idUser}")
 	List<FavGenresDTO> favGenres(@PathVariable(value="idUser") int id){
-		userRepository.favGenres(id);
-	}*/
+		return userRepository.getFavGenres(id);
+	}
 }
