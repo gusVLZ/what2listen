@@ -9,6 +9,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 
+import br.Utils.Globals;
+import br.usjt.what2listen.Model.UserTable;
+
 public class Login {
 	public static JPanel loginView() {
 		JPanel jp = new JPanel();
@@ -60,6 +63,8 @@ public class Login {
 		jp.add(left);
 		jp.add(right);
 		jp.setLayout(new GridLayout(1, 2));
+
+		Globals.usuarioLogado = new UserTable(1, "gusVLZ", "gvnv.2000@gmail.com", "123456");
 
 		return jp;
 	}
