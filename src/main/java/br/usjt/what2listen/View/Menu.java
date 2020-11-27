@@ -1,17 +1,16 @@
 package br.usjt.what2listen.View;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
 
-import br.Utils.Globals;
-import br.usjt.what2listen.Model.UserTable;
-
-public class Login {
-	public static JPanel loginView() {
+public class Menu {
+	public static JPanel menuView() {
 		JPanel jp = new JPanel();
 		JPanel left = new JPanel();
 		left.setBorder(new EmptyBorder(60, 60, 60, 60));
@@ -47,7 +46,7 @@ public class Login {
 		JLabel labelPassword = new JLabel("Password :");
 		JTextField labelPasswordL = new JTextField();
 		JLabel labelEmpty = new JLabel("");
-		JButton btnlog = new JButton("Logar").;
+		JButton btnlog = new JButton("Logar");
 
 		right.add(tituloLogin);
 		right.add(labelUser);
@@ -61,8 +60,6 @@ public class Login {
 		jp.add(left);
 		jp.add(right);
 		jp.setLayout(new GridLayout(1, 2));
-
-		Globals.usuarioLogado = new UserTable(1, "gusVLZ", "gvnv.2000@gmail.com", "123456");
 
 		return jp;
 	}
