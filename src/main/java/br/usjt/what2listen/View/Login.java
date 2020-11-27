@@ -46,7 +46,7 @@ public class Login {
 		JLabel labelPassword = new JLabel("Password :");
 		JTextField labelPasswordL = new JTextField();
 		JLabel labelEmpty = new JLabel("");
-		JButton btnlog = new JButton("Logar");
+		JButton btnlog = new JButton("Logar").;
 
 		right.add(tituloLogin);
 		right.add(labelUser);
