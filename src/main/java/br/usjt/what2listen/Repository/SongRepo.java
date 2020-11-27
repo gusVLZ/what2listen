@@ -7,4 +7,7 @@ import br.usjt.what2listen.Model.Song;
 @Repository
 public interface SongRepo extends CrudRepository<Song, Integer>{
 
+        
+
+
 }
