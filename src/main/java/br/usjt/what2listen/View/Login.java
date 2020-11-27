@@ -1,13 +1,11 @@
 package br.usjt.what2listen.View;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
 
 import br.Utils.Globals;
 import br.usjt.what2listen.Model.UserTable;

@@ -22,7 +22,7 @@ public class MainFrame extends JFrame {
         jf.setSize(800, 600);
         jf.setLocationRelativeTo(null);
 
-        jf.setContentPane(Login.loginView());
+        jf.setContentPane(UserGenre.view());
 
         jf.setVisible(true);
 
