@@ -1,7 +1,5 @@
 package br.usjt.what2listen.View;
 
-
-import javax.swing.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -53,17 +51,10 @@ public class Login {
 		btnlog.addActionListener((ActionListener) new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
-				JFrame jf = new JFrame("Dashboard");
-				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                jf.setSize(800, 600);
-                jf.setLocationRelativeTo(null);
-
-                jf.setContentPane(Menu.menuView());
-
-                jf.setVisible(true);
+                MainFrame.jf.setContentPane(Menu.menuView());
+                MainFrame.jf.setVisible(true);
 			}
 		});
-		
 
 		right.add(tituloLogin);
 		right.add(labelUser);
@@ -77,7 +68,6 @@ public class Login {
 		jp.add(left);
 		jp.add(right);
 		jp.setLayout(new GridLayout(1, 2));
-
 
 		return jp;
 	}
