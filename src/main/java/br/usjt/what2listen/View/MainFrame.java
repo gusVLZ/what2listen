@@ -18,12 +18,12 @@ public class MainFrame extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     public MainFrame(){
         JFrame jf = new JFrame("What 2 Listen - EngComp");
-        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setSize(800, 600);
         jf.setLocationRelativeTo(null);
 
         jf.setContentPane(Login.loginView());
-
+        jf.setContentPane(UserGenre.view());
+        jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jf.setVisible(true);
 
         //initComponents();
