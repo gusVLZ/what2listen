@@ -1,11 +1,15 @@
 package br.usjt.what2listen.View;
 
+
+import javax.swing.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
 
 import br.Utils.Globals;
 import br.usjt.what2listen.Model.UserTable;
@@ -47,7 +51,22 @@ public class Login {
 		JLabel labelPassword = new JLabel("Password :");
 		JTextField labelPasswordL = new JTextField();
 		JLabel labelEmpty = new JLabel("");
-		JButton btnlog = new JButton("Logar");
+		JButton btnlog = new JButton("Logar");	
+
+		btnlog.addActionListener((ActionListener) new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				JFrame jf = new JFrame("Dashboard");
+				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                jf.setSize(800, 600);
+                jf.setLocationRelativeTo(null);
+
+                jf.setContentPane(Menu.menuView());
+
+                jf.setVisible(true);
+			}
+		});
+		
 
 		right.add(tituloLogin);
 		right.add(labelUser);

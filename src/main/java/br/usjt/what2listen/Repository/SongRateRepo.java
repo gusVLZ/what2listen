@@ -23,6 +23,6 @@ public interface SongRateRepo extends CrudRepository<SongRate, Integer> {
 			"WHERE uxg.id_user = 1 AND sr.id_song NOT IN (SELECT id_song FROM song_rate WHERE id_user = 1 GROUP BY id_song)\r\n"+             			
 			"GROUP BY sg.id, sg.name, sg.artist, gr.id, gr.name\r\n" + 
 			"ORDER BY avg(sr.rate) DESC LIMIT 5 ", nativeQuery=true)
-	List<?> getBestRatedSongs();
+	List<?> getBestRatedSongs(); //trocar id usuario por variavel global
 
 }
