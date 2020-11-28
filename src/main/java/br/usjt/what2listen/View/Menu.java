@@ -1,21 +1,17 @@
 package br.usjt.what2listen.View;
+
 import javax.swing.JFrame;
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.*;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.border.EmptyBorder;
 
-
-public class Menu  {
+public class Menu {
 	public static JPanel menuView() {
 
 		JPanel jp = new JPanel();
@@ -24,18 +20,18 @@ public class Menu  {
 		JButton btnGenre = new JButton("Generos Favoritos");
 		JLabel labelEmpty = new JLabel("");
 		JButton btnRec = new JButton("Recomendações");
-		
-		btnGenre.addActionListener((ActionListener) new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
+
+		btnGenre.addActionListener((ActionListener) new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 				JFrame jf = new JFrame("Gêneros Favoritos");
 				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                jf.setSize(800, 600);
-                jf.setLocationRelativeTo(null);
+				jf.setSize(800, 600);
+				jf.setLocationRelativeTo(null);
 
-                jf.setContentPane(UserGenre.view());
+				jf.setContentPane(UserGenre.view());
 
-                jf.setVisible(true);
+				jf.setVisible(true);
 			}
 		});
 
