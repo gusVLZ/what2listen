@@ -35,6 +35,20 @@ public class Menu {
 				jf.setVisible(true);
 			}
 		});
+		
+		btnRec.addActionListener((ActionListener) new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				JFrame jf = new JFrame("Recomendações");
+				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                jf.setSize(800, 600);
+                jf.setLocationRelativeTo(null);
+
+                jf.setContentPane(Recomendacoes.RecView());
+
+                jf.setVisible(true);
+			}
+		});
 
 		jp.add(btnGenre);	
 		jp.add(labelEmpty);	

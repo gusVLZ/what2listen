@@ -20,10 +20,11 @@ public class MainFrame extends JFrame {
         JFrame jf = new JFrame("What 2 Listen - EngComp");
         jf.setSize(800, 600);
         jf.setLocationRelativeTo(null);
+        jf.setContentPane(Login.loginView());
 
         //jf.setContentPane(Login.loginView());
-		UserGenre ug = new UserGenre();
-        jf.setContentPane(ug.view());
+		//UserGenre ug = new UserGenre();
+        //jf.setContentPane(ug.view());
         jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jf.setVisible(true);
 
