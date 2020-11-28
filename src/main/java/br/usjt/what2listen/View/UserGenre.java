@@ -1,12 +1,8 @@
 package br.usjt.what2listen.View;
-import java.awt.event.*;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
-import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import java.awt.GridBagLayout;
@@ -97,8 +93,6 @@ public class UserGenre {
         wrap.add(new JScrollPane(leftInner), gbc);
 
         gbc.gridx=1;
-        gbc.gridy=3;
-        gbc.weighty=6;
 
         JPanel rightInner = new JPanel();
         rightInner.setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -121,6 +115,21 @@ public class UserGenre {
 
         rightInner.setLayout(new GridLayout(otherGenres.size(), 1));
         wrap.add(new JScrollPane(rightInner), gbc);
+        gbc.weighty=1;
+
+        gbc.gridx=0;
+        gbc.gridy=4;
+        gbc.gridwidth=2;
+        
+		JButton btnMenu = new JButton("Voltar para o menu");	
+		btnMenu.addActionListener((ActionListener) new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+                MainFrame.jf.setContentPane(Menu.menuView());
+                MainFrame.jf.setVisible(true);
+			}
+		});
+        wrap.add(btnMenu, gbc);
 
         return wrap;
     }
@@ -140,8 +149,10 @@ public class UserGenre {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            System.out.println("Adicionar: "+idGenre);
             uc.addFavGenre(idGenre);
-            JOptionPane.showMessageDialog(null, "Adicionado genero de Id "+idGenre, "title", JOptionPane.INFORMATION_MESSAGE);
+            MainFrame.jf.setContentPane(view());
+            MainFrame.jf.setVisible(true);
         }
     }
 
@@ -156,8 +167,10 @@ public class UserGenre {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            System.out.println("Remover: "+idGenre);
             uc.remFavGenre(idGenre);
-            JOptionPane.showMessageDialog(null, "Removido genero de Id "+idGenre, "title", JOptionPane.INFORMATION_MESSAGE);
+            MainFrame.jf.setContentPane(view());
+            MainFrame.jf.setVisible(true);
         }
     }
 

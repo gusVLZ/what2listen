@@ -1,7 +1,5 @@
 package br.usjt.what2listen.View;
 
-import javax.swing.JFrame;
-import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,29 +22,21 @@ public class Menu {
 		btnGenre.addActionListener((ActionListener) new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame jf = new JFrame("Gêneros Favoritos");
-				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				jf.setSize(800, 600);
-				jf.setLocationRelativeTo(null);
 
 				UserGenre ug = new UserGenre();
-				jf.setContentPane(ug.view());
+				MainFrame.jf.setContentPane(ug.view());
 
-				jf.setVisible(true);
+				MainFrame.jf.setVisible(true);
 			}
 		});
 		
 		btnRec.addActionListener((ActionListener) new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
-				JFrame jf = new JFrame("Recomendações");
-				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                jf.setSize(800, 600);
-                jf.setLocationRelativeTo(null);
 
-                jf.setContentPane(Recomendacoes.RecView());
+                MainFrame.jf.setContentPane(Recomendacoes.RecView());
 
-                jf.setVisible(true);
+                MainFrame.jf.setVisible(true);
 			}
 		});
 
