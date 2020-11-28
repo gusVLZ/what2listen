@@ -26,16 +26,16 @@ public class UserGenre {
         gbc.gridx=0;
         gbc.gridy=0;
         gbc.gridwidth=2;
-        wrap.add(title("Gêneros Favoritos", Font.BOLD, 18), gbc);
+        wrap.add(Components.title("Gêneros Favoritos", Font.BOLD, 18), gbc);
         gbc.gridwidth=1;
         
         gbc.gridx=0;
         gbc.gridy=1;
-        wrap.add(title("Gêneros Favoritos", Font.PLAIN, 16), gbc);
+        wrap.add(Components.title("Gêneros Favoritos", Font.PLAIN, 16), gbc);
 
         gbc.gridx=1;
         gbc.gridy=1;
-        wrap.add(title("Outros Gêneros", Font.PLAIN, 16), gbc);
+        wrap.add(Components.title("Outros Gêneros", Font.PLAIN, 16), gbc);
 
         gbc.gridx=0;
         gbc.gridy=2;
@@ -93,10 +93,5 @@ public class UserGenre {
         return wrap;
     }
 
-    public static JLabel title(String text, int style, int fontSize){
-        JLabel ret = new JLabel(text, JLabel.CENTER);
-        ret.setFont(new Font("Arial", style, fontSize));
-        return ret;
-    }
 
 }
