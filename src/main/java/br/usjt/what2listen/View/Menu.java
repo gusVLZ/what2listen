@@ -29,7 +29,8 @@ public class Menu {
 				jf.setSize(800, 600);
 				jf.setLocationRelativeTo(null);
 
-				jf.setContentPane(UserGenre.view());
+				UserGenre ug = new UserGenre();
+				jf.setContentPane(ug.view());
 
 				jf.setVisible(true);
 			}

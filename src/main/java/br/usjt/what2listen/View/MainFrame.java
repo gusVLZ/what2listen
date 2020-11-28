@@ -21,8 +21,9 @@ public class MainFrame extends JFrame {
         jf.setSize(800, 600);
         jf.setLocationRelativeTo(null);
 
-        jf.setContentPane(Login.loginView());
-        jf.setContentPane(UserGenre.view());
+        //jf.setContentPane(Login.loginView());
+		UserGenre ug = new UserGenre();
+        jf.setContentPane(ug.view());
         jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jf.setVisible(true);
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.Utils.Globals;
+import br.usjt.what2listen.Utils.Globals;
 import br.usjt.what2listen.Exception.GenericError;
 import br.usjt.what2listen.Model.Genre;
 import br.usjt.what2listen.Model.UserTable;
@@ -34,17 +34,17 @@ public class UserController {
 	}
 
 	@PostMapping("/UserTable")
-	void addCliente(@RequestBody UserTable user) {
+	public void addCliente(@RequestBody UserTable user) {
 		userRepository.save(user);
 	}
 
 	@GetMapping("/FavGenres/{idUser}")
-	List<Genre> favGenres(@PathVariable(value="idUser") int id){
-		return genreRepository.getFavGenres(id);
+	public List<Genre> favGenres(@PathVariable(value="idUser") int idUser){
+		return genreRepository.getFavGenres(idUser);
 	}
 
 	@PostMapping("/AddFavGenre/{idGenre}")
-	boolean addFavGenre(@PathVariable(value="idGenre") int idGenre){
+	public boolean addFavGenre(@PathVariable(value="idGenre") int idGenre){
 		UserGenre ug = new UserGenre(0, Globals.usuarioLogado.getId(), idGenre);
 		try{
 			ugRepository.save(ug);
