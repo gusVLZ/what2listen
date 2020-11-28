@@ -55,49 +55,6 @@ public class UserGenre {
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
 
-	JButton btnBack = new JButton("Menu");
-        btnBack.addActionListener((ActionListener) new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
-				JFrame jf = new JFrame("Menu");
-				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                jf.setSize(800, 600);
-                jf.setLocationRelativeTo(null);
-
-                jf.setContentPane(Menu.menuView());
-
-                jf.setVisible(true);
-			}
-		});
-        gbc.gridx=0;
-        gbc.gridy=0;
-        gbc.gridwidth=1;
-        wrap.add(btnBack);
-
-        gbc.gridx=1;
-        gbc.gridy=0;
-        gbc.gridwidth=1;
-        wrap.add(btnBack);
-
-        gbc.gridx=2;
-        gbc.gridy=0;
-        gbc.gridwidth=1;
-        wrap.add(btnBack);
-
-        gbc.gridx=3;
-        gbc.gridy=0;
-        gbc.gridwidth=1;
-        wrap.add(btnBack);
-
-        gbc.gridx=4;
-        gbc.gridy=0;
-        gbc.gridwidth=1;
-        wrap.add(btnBack);
-
-        gbc.gridx=5;
-        gbc.gridy=0;
-        gbc.gridwidth=1;
-        wrap.add(btnBack);
 
         gbc.gridx=0;
         gbc.gridy=1;

@@ -16,15 +16,17 @@ import javax.swing.border.EmptyBorder;
 
 
 public class Recomendacoes  {
-	public static JPanel RecView() {
+	public static JFrame RecView() {
 
-		JPanel jp = new JPanel();
-		jp.setBorder(new EmptyBorder(200, 60, 0, 60));
-		jp.setBackground(Color.lightGray);
-		JButton btnBack = new JButton("Menu");
-		JLabel labelEmpty = new JLabel("");
+		//Creating the Frame
+        JFrame frame = new JFrame("Recomendações");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(800, 600);
+
+        //Creating the MenuBar and adding components
+		JButton mb = new JButton("Menu");
 		
-		btnBack.addActionListener((ActionListener) new ActionListener(){
+        mb.addActionListener((ActionListener) new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
 				JFrame jf = new JFrame("Menu");
@@ -37,13 +39,22 @@ public class Recomendacoes  {
                 jf.setVisible(true);
 			}
 		});
+ 
+        //Creating the panel at bottom and adding components
+        JPanel panel = new JPanel(); // the panel is not visible in output
+		panel.setBackground(Color.lightGray);
 
-		jp.add(btnBack);	
-		jp.add(labelEmpty);	
-		jp.setLayout(new GridLayout(9, 1));
 
+        // Text Area at the Center
+        JTextArea ta = new JTextArea();
 
-		return jp;
+        //Adding Components to the frame.
+        frame.getContentPane().add(BorderLayout.SOUTH, panel);
+        frame.getContentPane().add(BorderLayout.NORTH, mb);
+        frame.getContentPane().add(BorderLayout.CENTER, ta);
+        frame.setVisible(true);
+
+		return frame;
 	}
 	
 }
