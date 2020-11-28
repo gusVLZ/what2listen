@@ -1,18 +1,11 @@
 package br.usjt.what2listen.View;
 import javax.swing.JFrame;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.*;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import java.awt.*;
+
 import java.awt.event.*;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
 
 
 public class Recomendacoes  {
