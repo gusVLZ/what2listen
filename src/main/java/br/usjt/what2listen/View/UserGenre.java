@@ -4,10 +4,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
@@ -34,10 +37,9 @@ public class UserGenre {
     }
 
     public JPanel view() {
-
         List<Genre> favGenres = uc.favGenres(Globals.usuarioLogado.getId());
         List<Genre> otherGenres = gc.getGenre();
-        
+
         otherGenres.removeIf(g -> favGenres.contains(g));
 
         JPanel wrap = new JPanel();
@@ -76,12 +78,12 @@ public class UserGenre {
             GridBagConstraints gbc1 = new GridBagConstraints();
             gbc1.fill = GridBagConstraints.BOTH;
             gbc1.insets = new Insets(3, 3, 3, 3);
-            gbc1.weightx=6;
-            gbc1.weighty=1;
+            gbc1.weightx = 6;
+            gbc1.weighty = 1;
             p.add(new JLabel(item.getName()), gbc1);
-            gbc1.weightx=1;
-            JButton btn = new JButton("-");
-            p.add(btn);
+            gbc1.weightx = 1;
+            RemoveButtonAction remBtn = new RemoveButtonAction();
+            p.add(remBtn.remFavButton(item.getId()));
             leftInner.add(p);
         });
 
@@ -95,50 +97,61 @@ public class UserGenre {
         rightInner.setBorder(new EmptyBorder(20, 20, 20, 20));
 
         otherGenres.forEach(item -> {
-            
             JPanel p = new JPanel();
             p.setLayout(new GridBagLayout());
             GridBagConstraints gbc1 = new GridBagConstraints();
             gbc1.fill = GridBagConstraints.BOTH;
             gbc1.insets = new Insets(3, 3, 3, 3);
-            gbc1.weightx=6;
-            gbc1.weighty=1;
+            gbc1.weightx = 6;
+            gbc1.weighty = 1;
             p.add(new JLabel(item.getName()), gbc1);
-            gbc1.weightx=1;
-            JButton btn = new JButton("-");
-            p.add(btn);
+            gbc1.weightx = 1;
+            
+            AddButtonAction addBtn = new AddButtonAction();
+            p.add(addBtn.addFavButton(item.getId()));
             rightInner.add(p);
         });
 
         rightInner.setLayout(new GridLayout(otherGenres.size(), 1));
         wrap.add(new JScrollPane(rightInner), gbc);
 
-        /**
-         * JPanel jp = new JPanel(); JPanel left = new JPanel(); left.setBorder(new
-         * EmptyBorder(60, 60, 60, 60)); left.setBackground(Color.lightGray);
-         * 
-         * 
-         * 
-         * left.setLayout(new GridLayout(2, 1)); JScrollPane leftScroll = new
-         * JScrollPane(leftInner);
-         * 
-         * left.add(new JLabel("teste")); left.add(leftScroll);
-         * 
-         * JPanel right = new JPanel(); right.setBorder(new EmptyBorder(60, 60, 60,
-         * 60)); JLabel tituloLogin = new JLabel("Login"); tituloLogin.setFont(new
-         * Font("Arial", Font.BOLD, 16)); right.setLayout(new GridLayout(9, 1));
-         * 
-         * JPanel rightInner = new JPanel(); leftInner.setBorder(new EmptyBorder(20, 20,
-         * 20, 20));
-         * 
-         * jp.add(left); jp.add(right); jp.setLayout(new GridLayout(1, 2));
-         */
-
         return wrap;
     }
 
-    public void btnPlusPressed(int idGenre){
+    public void btnPlusPressed(int idGenre) {
         uc.addFavGenre(idGenre);
+    }
+
+    class AddButtonAction implements ActionListener {
+        private int idGenre = 0;
+        public JButton addFavButton(int id){
+            idGenre=id;
+            JButton btn = new JButton("+");
+            btn.addActionListener(this);
+            return btn;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            uc.addFavGenre(idGenre);
+            JOptionPane.showMessageDialog(null, "Adicionado genero de Id "+idGenre, "title", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    class RemoveButtonAction implements ActionListener {
+        private int idGenre = 0;
+        public JButton remFavButton(int id){
+            idGenre=id;
+            JButton btn = new JButton("-");
+            btn.addActionListener(this);
+            return btn;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            uc.remFavGenre(idGenre);
+            JOptionPane.showMessageDialog(null, "Removido genero de Id "+idGenre, "title", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
 }

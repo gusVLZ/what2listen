@@ -11,6 +11,6 @@ import br.usjt.what2listen.Model.Genre;
 	@Repository
 	public interface GenreRepo extends CrudRepository<Genre, Integer> {
 
-	@Query(value="select g.* from user_x_genre ug left join genre g on ug.id_genre = g.id where id_user = ?1", nativeQuery=true)
+	@Query(value="select g.* from user_x_genre ug left join genre g on ug.id_genre = g.id where id_user = ?1 and ug.active=1", nativeQuery=true)
 	List<Genre> getFavGenres(int idUser);
 }
