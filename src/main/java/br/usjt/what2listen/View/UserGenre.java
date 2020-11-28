@@ -1,6 +1,8 @@
 package br.usjt.what2listen.View;
-
+import java.awt.event.*;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import java.awt.*;
@@ -18,27 +20,72 @@ public class UserGenre {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill=GridBagConstraints.BOTH;
         gbc.insets = new Insets(15,15,15,15);
+        
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.gridwidth=1;
         gbc.gridheight=1;
 
+	JButton btnBack = new JButton("Menu");
+        btnBack.addActionListener((ActionListener) new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				JFrame jf = new JFrame("Menu");
+				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                jf.setSize(800, 600);
+                jf.setLocationRelativeTo(null);
+
+                jf.setContentPane(Menu.menuView());
+
+                jf.setVisible(true);
+			}
+		});
         gbc.gridx=0;
         gbc.gridy=0;
+        gbc.gridwidth=1;
+        wrap.add(btnBack);
+
+        gbc.gridx=1;
+        gbc.gridy=0;
+        gbc.gridwidth=1;
+        wrap.add(btnBack);
+
+        gbc.gridx=2;
+        gbc.gridy=0;
+        gbc.gridwidth=1;
+        wrap.add(btnBack);
+
+        gbc.gridx=3;
+        gbc.gridy=0;
+        gbc.gridwidth=1;
+        wrap.add(btnBack);
+
+        gbc.gridx=4;
+        gbc.gridy=0;
+        gbc.gridwidth=1;
+        wrap.add(btnBack);
+
+        gbc.gridx=5;
+        gbc.gridy=0;
+        gbc.gridwidth=1;
+        wrap.add(btnBack);
+
+        gbc.gridx=0;
+        gbc.gridy=1;
         gbc.gridwidth=2;
         wrap.add(Components.title("Gêneros Favoritos", Font.BOLD, 18), gbc);
         gbc.gridwidth=1;
         
         gbc.gridx=0;
-        gbc.gridy=1;
+        gbc.gridy=2;
         wrap.add(Components.title("Gêneros Favoritos", Font.PLAIN, 16), gbc);
 
         gbc.gridx=1;
-        gbc.gridy=1;
+        gbc.gridy=2;
         wrap.add(Components.title("Outros Gêneros", Font.PLAIN, 16), gbc);
 
         gbc.gridx=0;
-        gbc.gridy=2;
+        gbc.gridy=3;
         gbc.weighty=6;
         JPanel leftInner = new JPanel();
         leftInner.setBorder(new EmptyBorder(20, 20, 20, 20));
@@ -51,7 +98,7 @@ public class UserGenre {
         
 
         gbc.gridx=1;
-        gbc.gridy=2;
+        gbc.gridy=3;
         gbc.weighty=6;
         JPanel rightInner = new JPanel();
         rightInner.setBorder(new EmptyBorder(20, 20, 20, 20));

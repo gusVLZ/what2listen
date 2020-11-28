@@ -15,47 +15,31 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 
-public class Menu  {
-	public static JPanel menuView() {
+public class Recomendacoes  {
+	public static JPanel RecView() {
 
 		JPanel jp = new JPanel();
 		jp.setBorder(new EmptyBorder(200, 60, 0, 60));
 		jp.setBackground(Color.lightGray);
-		JButton btnGenre = new JButton("Generos Favoritos");
+		JButton btnBack = new JButton("Menu");
 		JLabel labelEmpty = new JLabel("");
-		JButton btnRec = new JButton("Recomendações");
 		
-		btnGenre.addActionListener((ActionListener) new ActionListener(){
+		btnBack.addActionListener((ActionListener) new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
-				JFrame jf = new JFrame("Gêneros Favoritos");
+				JFrame jf = new JFrame("Menu");
 				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 jf.setSize(800, 600);
                 jf.setLocationRelativeTo(null);
 
-                jf.setContentPane(UserGenre.view());
-
-                jf.setVisible(true);
-			}
-		});
-		
-		btnRec.addActionListener((ActionListener) new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
-				JFrame jf = new JFrame("Recomendações");
-				jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                jf.setSize(800, 600);
-                jf.setLocationRelativeTo(null);
-
-                jf.setContentPane(Recomendacoes.RecView());
+                jf.setContentPane(Menu.menuView());
 
                 jf.setVisible(true);
 			}
 		});
 
-		jp.add(btnGenre);	
+		jp.add(btnBack);	
 		jp.add(labelEmpty);	
-		jp.add(btnRec);
 		jp.setLayout(new GridLayout(9, 1));
 
 
