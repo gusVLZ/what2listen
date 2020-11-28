@@ -38,6 +38,17 @@ public class UserController {
 		userRepository.save(user);
 	}
 
+	public UserTable login(@RequestBody UserTable ur){
+		UserTable u = userRepository.login(ur.getUsername(), ur.getPassword());
+
+		if(u!=null && u.getId()>0){
+			return u;
+		}else{
+			return null;
+		}
+
+	}
+
 	@GetMapping("/FavGenres/{idUser}")
 	public List<Genre> favGenres(@PathVariable(value="idUser") int idUser){
 		return genreRepository.getFavGenres(idUser);

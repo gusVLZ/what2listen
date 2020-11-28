@@ -22,7 +22,8 @@ public class MainFrame extends JFrame {
         jf = new JFrame("What 2 Listen - EngComp");
         jf.setSize(800, 600);
         jf.setLocationRelativeTo(null);
-        jf.setContentPane(Login.loginView());
+        Login login = new Login();
+        jf.setContentPane(login.loginView());
 
         //jf.setContentPane(Login.loginView());
 		//UserGenre ug = new UserGenre();
