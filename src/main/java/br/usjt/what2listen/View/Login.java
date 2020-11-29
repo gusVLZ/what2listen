@@ -2,15 +2,33 @@ package br.usjt.what2listen.View;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.usjt.what2listen.Controller.UserController;
+import br.usjt.what2listen.Model.UserTable;
+import br.usjt.what2listen.Utils.BeanProvider;
+import br.usjt.what2listen.Utils.Globals;
+
 
 public class Login {
-	public static JPanel loginView() {
+	
+    @Autowired
+	private UserController uc;
+
+	public Login(){
+        BeanProvider.autowire(this);
+	}
+	
+	public JPanel loginView() {
 		JPanel jp = new JPanel();
 		JPanel left = new JPanel();
 		left.setBorder(new EmptyBorder(60, 60, 60, 60));
@@ -42,25 +60,37 @@ public class Login {
 		JLabel tituloLogin = new JLabel ("Login");
 		tituloLogin.setFont(new Font("Arial", Font.BOLD, 16));
 		JLabel labelUser = new JLabel("Username:");
-		JTextField labelUserL = new JTextField();
+		JTextField txtUserL = new JTextField();
 		JLabel labelPassword = new JLabel("Password :");
-		JTextField labelPasswordL = new JTextField();
+		JPasswordField txtPasswordL = new JPasswordField ();
 		JLabel labelEmpty = new JLabel("");
 		JButton btnlog = new JButton("Logar");	
 
 		btnlog.addActionListener((ActionListener) new ActionListener(){
 			public void actionPerformed(ActionEvent e)
 			{
-                MainFrame.jf.setContentPane(Menu.menuView());
-                MainFrame.jf.setVisible(true);
+				System.out.println(txtUserL.getText());
+
+				UserTable u = new UserTable();
+				u.setUsername(txtUserL.getText());
+				u.setPassword(new String(txtPasswordL.getPassword()));
+				UserTable ul = uc.login(u);
+
+				if(ul!=null && ul.getId()>0){
+					Globals.usuarioLogado = ul;
+					MainFrame.jf.setContentPane(Menu.menuView());
+					MainFrame.jf.setVisible(true);
+				}else{
+					JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
+				}
 			}
 		});
 
 		right.add(tituloLogin);
 		right.add(labelUser);
-		right.add(labelUserL);
+		right.add(txtUserL);
 		right.add(labelPassword);
-		right.add(labelPasswordL);
+		right.add(txtPasswordL);
 		right.add(labelEmpty);
 		right.add(btnlog);
 		right.setLayout(new GridLayout(9, 1));

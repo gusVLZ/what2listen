@@ -91,6 +91,12 @@ public class Recomendacoes {
 		 * 
 		 * centerPanel.add(list);
 		 */
+		// Initialize the list with items
+		/*String[] items = { "A", "B", "C", "D" };
+		for (int i = 0; i < items.length; i++) {
+			model.add(i, items[i]);
+		}
+		centerPanel.add(list);*/
 
 		// Adding Components to the frame.
 		frame.getContentPane().add(BorderLayout.SOUTH, southPanel);

@@ -3,7 +3,6 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
-
 import java.awt.Color;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -14,9 +13,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import java.awt.Font;
 import javax.swing.border.EmptyBorder;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import br.usjt.what2listen.Utils.BeanProvider;
 import br.usjt.what2listen.Utils.Globals;
 import br.usjt.what2listen.Controller.GenreController;

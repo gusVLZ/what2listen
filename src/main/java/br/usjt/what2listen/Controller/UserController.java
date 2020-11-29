@@ -34,8 +34,19 @@ public class UserController {
 	}
 
 	@PostMapping("/UserTable")
-	public void addCliente(@RequestBody UserTable user) {
-		userRepository.save(user);
+	public UserTable addCliente(@RequestBody UserTable user) {
+		return userRepository.save(user);
+	}
+
+	public UserTable login(@RequestBody UserTable ur){
+		UserTable u = userRepository.login(ur.getUsername(), ur.getPassword());
+
+		if(u!=null && u.getId()>0){
+			return u;
+		}else{
+			return null;
+		}
+
 	}
 
 	@GetMapping("/FavGenres/{idUser}")

@@ -17,7 +17,9 @@ public class Menu {
 		jp.setBackground(Color.lightGray);
 		JButton btnGenre = new JButton("Generos Favoritos");
 		JLabel labelEmpty = new JLabel("");
+		JLabel labelEmpty1 = new JLabel("");
 		JButton btnRec = new JButton("Recomendações");
+		JButton btnLogout = new JButton("Logout");
 
 		btnGenre.addActionListener((ActionListener) new ActionListener() {
 			@Override
@@ -41,10 +43,23 @@ public class Menu {
 			}
 		});
 
+		btnLogout.addActionListener((ActionListener) new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+
+				Login l = new Login();
+                MainFrame.jf.setContentPane(l.loginView());
+
+                MainFrame.jf.setVisible(true);
+			}
+		});
+
 		jp.add(btnGenre);	
 		jp.add(labelEmpty);	
 		jp.add(btnRec);
-		jp.setLayout(new GridLayout(9, 1));
+		jp.add(labelEmpty1);	
+		jp.add(btnLogout);
+		jp.setLayout(new GridLayout(11, 1));
 
 
 		return jp;
