@@ -46,7 +46,6 @@ public class Recomendacoes {
 		String[] items = { "A", "B", "C", "D" };
 		for (int i = 0; i < items.length; i++) {
 			model.add(i, items[i]);
-
 		}
 		centerPanel.add(list);
 
