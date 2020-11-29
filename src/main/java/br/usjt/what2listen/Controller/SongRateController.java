@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import br.usjt.what2listen.Model.SongRate;
 import br.usjt.what2listen.Repository.SongRateRepo;
+import br.usjt.what2listen.Utils.Globals;
+
 
 @RestController
 public class SongRateController {
@@ -28,7 +30,7 @@ public class SongRateController {
 
 		@GetMapping("/topSongRate")
 	    List<?> getTopSongRate() {
-	    	return (List<?>) SongRateRepository.getBestRatedSongs();
+	    	return (List<?>) SongRateRepository.getBestRatedSongs(Globals.usuarioLogado.getId());
 	    }	    	    
 }
 
