@@ -8,8 +8,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.table.TableCellEditor;
-import javax.swing.text.TableView.TableCell; 
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -76,8 +74,9 @@ public class Recomendacoes {
 			public void valueChanged(ListSelectionEvent event) {
 				// do some actions here, for example
 				// print first column value from selected row
-				// System.out.println(j.getValueAt(j.getSelectedRow(), 0).toString());
-				MainFrame.jf.setContentPane(Musica.MusicaView());
+				int idSong = Integer.parseInt(j.getValueAt(j.getSelectedRow(), 0).toString());
+				Musica mv = new Musica();
+				MainFrame.jf.setContentPane(mv.MusicaView(idSong));
 				MainFrame.jf.setVisible(true);
 			}
 		});

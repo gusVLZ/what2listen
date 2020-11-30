@@ -17,5 +17,10 @@ public class SongController {
     public List<Song> getSong() {
         return (List<Song>) songRepository.findAll();
     }
+
+    @GetMapping("/song")
+    public Song getSong(int id) {
+        return songRepository.findById(id).get();
+    }
 }
  

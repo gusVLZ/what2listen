@@ -2,19 +2,30 @@ package br.usjt.what2listen.View;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JFrame;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.usjt.what2listen.Controller.SongController;
+import br.usjt.what2listen.Controller.SongRateController;
+import br.usjt.what2listen.Model.Song;
+import br.usjt.what2listen.Utils.BeanProvider;
+
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.TableCellEditor;
-import javax.swing.text.TableView.TableCell; 
 
 public class Musica {
-	public static JPanel MusicaView() {
+    
+	@Autowired
+    private SongRateController src;
+	@Autowired
+    private SongController sc;
+    
+    public Musica(){
+		MainFrame.jf.setTitle("Recomendações - What2Listen");
+		BeanProvider.autowire(this);
+    }
+	public JPanel MusicaView(int idSong) {
 
 		// Creating the Frame
 		JPanel frame = new JPanel();
@@ -22,7 +33,8 @@ public class Musica {
 		// North panel
 		JPanel northPanel = new JPanel(); // the panel is not visible in output
 		northPanel.setBackground(Color.LIGHT_GRAY);
-		northPanel.add(Components.title("Aqui vai o título da música", Font.PLAIN, 24));
+		Song s = sc.getSong(idSong);
+		northPanel.add(Components.title(s.getName(), Font.PLAIN, 24));
 
 		// Creating the panel at bottom and adding components
 		JPanel southPanel = new JPanel(); // the panel is not visible in output
