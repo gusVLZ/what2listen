@@ -63,7 +63,7 @@ public class Login {
 		JLabel labelPassword = new JLabel("Password :");
 		JPasswordField txtPasswordL = new JPasswordField("123456");
 		JLabel labelEmpty = new JLabel("");
-		JButton btnlog = new JButton("Logar");
+		JButton btnlog = new JButton("Logar"); 
 
 		btnCad.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

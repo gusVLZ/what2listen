@@ -134,8 +134,7 @@ public class Recomendacoes {
             { "musica 4" },
             { "musica 1" }, 
             { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" }
+            { "musica 3" }
         }; 
   
         // Column Names 
