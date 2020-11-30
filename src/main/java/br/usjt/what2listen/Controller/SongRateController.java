@@ -27,9 +27,13 @@ public class SongRateController {
 		SongRateRepository.save(songrate);
 	}
 
-	@GetMapping("/topSongRate")
-	    List<?> getTopSongRate() {
-	    	return (List<?>) SongRateRepository.getBestRatedSongs(Globals.usuarioLogado.getId());
-	    }	    	    
-}
+	@GetMapping("/RecomendedSongs")
+	List<?> getRecomendedSongs() {
+		return (List<?>) SongRateRepository.getRecomendedSongs(Globals.usuarioLogado.getId());
+	}
 
+	@GetMapping("/BestRatedSongs")
+	List<?> getBestRatedSongs() {
+		return (List<?>) SongRateRepository.getBestRatedSongs();
+	}
+}

@@ -6,13 +6,16 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.JScrollPane; 
-import javax.swing.JTable; 
+import javax.swing.JTable;
+import javax.swing.table.TableCellEditor;
+import javax.swing.text.TableView.TableCell; 
 
 public class Recomendacoes {
 	public static JPanel RecView() {
 
 		// Creating the Frame
 		JPanel frame = new JPanel();
+		frame.setLayout(new BorderLayout());
 		// North panel
 		JPanel northPanel = new JPanel(); // the panel is not visible in output
 		northPanel.setBackground(Color.LIGHT_GRAY);
@@ -52,7 +55,87 @@ public class Recomendacoes {
             { "musica 1" }, 
             { "musica 2" }, 
             { "musica 3" }, 
-            { "musica 4" } 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" },
+            { "musica 1" }, 
+            { "musica 2" }, 
+            { "musica 3" }, 
+            { "musica 4" }
         }; 
   
         // Column Names 
@@ -61,7 +144,9 @@ public class Recomendacoes {
         /*String[] data = { "musica 1","musica 2","musica 3","musica 4","musica 5","musica 6" }; 
         String[] columnNames = { "Musicas Recomendadas" }; */
 		j = new JTable(data, columnNames); 
-		j.setBounds(30, 40, 200, 300); 
+		j.setSize(200,300);
+		j.setFont(new Font("Arial", Font.PLAIN, 16));
+		j.setRowHeight(40);
 		j.setDefaultEditor(Object.class, null);
 		JScrollPane sp = new JScrollPane(j); 
 
@@ -71,9 +156,9 @@ public class Recomendacoes {
 		gbc.gridx = 1;
 		gbc.gridy = 0;
 		//ImageIcon icon = new ImageIcon(getClass().getResource("penguin.png")); só da pra colocar se a classe não for estatica
-		JLabel label = new JLabel("aqui vai o penguin");
+		//JLabel label = new JLabel("aqui vai o penguin");
 
-		centerPanel.add(label);
+		//centerPanel.add(label);
 
 		//centerPanel.add(Components.title("Aqui vai uma imagem", Font.PLAIN, 16), gbc);
 

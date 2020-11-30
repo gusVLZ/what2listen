@@ -15,7 +15,7 @@ public class Menu {
 		JPanel jp = new JPanel();
 		jp.setBorder(new EmptyBorder(200, 60, 0, 60));
 		jp.setBackground(Color.lightGray);
-		JButton btnGenre = new JButton("Generos Favoritos");
+		JButton btnGenre = new JButton("Gêneros Favoritos");
 		JLabel labelEmpty = new JLabel("");
 		JLabel labelEmpty1 = new JLabel("");
 		JButton btnRec = new JButton("Recomendações");
@@ -24,10 +24,8 @@ public class Menu {
 		btnGenre.addActionListener((ActionListener) new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
 				UserGenre ug = new UserGenre();
 				MainFrame.jf.setContentPane(ug.view());
-
 				MainFrame.jf.setVisible(true);
 			}
 		});
