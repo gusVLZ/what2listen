@@ -33,7 +33,8 @@ public class Menu {
 
 		btnRec.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MainFrame.jf.setContentPane(Recomendacoes.RecView());
+				Recomendacoes rec = new Recomendacoes();
+				MainFrame.jf.setContentPane(rec.RecView());
 				MainFrame.jf.setVisible(true);
 			}
 		});

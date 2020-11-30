@@ -22,18 +22,18 @@ public class SongRateController {
 	}
 
 	@PostMapping("/Songrate")
-	void addSongRate(@RequestBody SongRate songrate) {
+	public SongRate addSongRate(@RequestBody SongRate songrate) {
 		System.out.println(songrate);
-		SongRateRepository.save(songrate);
+		return SongRateRepository.save(songrate);
 	}
 
 	@GetMapping("/RecomendedSongs")
-	List<?> getRecomendedSongs() {
-		return (List<?>) SongRateRepository.getRecomendedSongs(Globals.usuarioLogado.getId());
+	public String[][] getRecomendedSongs() {
+		return SongRateRepository.getRecomendedSongs(Globals.usuarioLogado.getId());
 	}
 
 	@GetMapping("/BestRatedSongs")
-	List<?> getBestRatedSongs() {
+	public List<?> getBestRatedSongs() {
 		return (List<?>) SongRateRepository.getBestRatedSongs();
 	}
 }
