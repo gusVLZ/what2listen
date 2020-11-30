@@ -2,7 +2,9 @@ package br.usjt.what2listen.View;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JFrame;
 import java.awt.*;
+import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -11,21 +13,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellEditor;
 import javax.swing.text.TableView.TableCell; 
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import br.usjt.what2listen.Controller.SongRateController;
-import br.usjt.what2listen.Utils.BeanProvider;
-
-public class Recomendacoes {
-    
-	@Autowired
-    private SongRateController sc;
-    
-    public Recomendacoes(){
-		MainFrame.jf.setTitle("Recomendações - What2Listen");
-		BeanProvider.autowire(this);
-    }
-	public JPanel RecView() {
+public class Musica {
+	public static JPanel MusicaView() {
 
 		// Creating the Frame
 		JPanel frame = new JPanel();
@@ -33,15 +22,16 @@ public class Recomendacoes {
 		// North panel
 		JPanel northPanel = new JPanel(); // the panel is not visible in output
 		northPanel.setBackground(Color.LIGHT_GRAY);
-		northPanel.add(Components.title("Recomendações de Músicas", Font.PLAIN, 24));
+		northPanel.add(Components.title("Aqui vai o título da música", Font.PLAIN, 24));
 
 		// Creating the panel at bottom and adding components
 		JPanel southPanel = new JPanel(); // the panel is not visible in output
 		southPanel.setBackground(Color.lightGray);
-		JButton btnMenu = new JButton("Voltar para o menu");
+		JButton btnMenu = new JButton("Voltar para recomendações");
 		btnMenu.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MainFrame.jf.setContentPane(Menu.menuView());
+				Recomendacoes rec = new Recomendacoes();
+				MainFrame.jf.setContentPane(rec.RecView());
 				MainFrame.jf.setVisible(true);
 			}
 		});
@@ -61,36 +51,25 @@ public class Recomendacoes {
 		gbc.gridheight = 1;
 
 		gbc.gridx = 0;
-		gbc.gridy = 0;
-
-        String[][] dados = sc.getRecomendedSongs();
-  
-        // Column Names 
-        String[] columnNames = { "Id", "Música", "Artista", "Nota Média" }; 
-  
-		JTable j = new JTable(dados, columnNames); 
-		//j.setSize(200,300);
-		j.setFont(new Font("Arial", Font.PLAIN, 16));
-		j.setRowHeight(40);
-		j.setDefaultEditor(Object.class, null);
-		j.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-			public void valueChanged(ListSelectionEvent event) {
-				// do some actions here, for example
-				// print first column value from selected row
-				// System.out.println(j.getValueAt(j.getSelectedRow(), 0).toString());
-				MainFrame.jf.setContentPane(Musica.MusicaView());
-				MainFrame.jf.setVisible(true);
-			}
-		});
-		JScrollPane sp = new JScrollPane(j); 
-
-		centerPanel.add(sp);
-		centerPanel.add(Components.title("Aqui vai a tabela", Font.PLAIN, 16), gbc);
+        gbc.gridy = 0;
+        JLabel album = new JLabel("album");
+		centerPanel.add(album);
 
 		gbc.gridx = 1;
-		gbc.gridy = 0;
+        gbc.gridy = 0;
+        JLabel genero = new JLabel("Psedo Pag");
+        centerPanel.add(genero);
+
+
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        JLabel rate = new JLabel("Media");
+        centerPanel.add(rate);
+
 		//ImageIcon icon = new ImageIcon(getClass().getResource("penguin.png")); só da pra colocar se a classe não for estatica
-		//JLabel label = new JLabel("aqui vai o penguin");
+        
+        //JLabel label = new JLabel("aqui vai o penguin");
+
 
 		//centerPanel.add(label);
 
