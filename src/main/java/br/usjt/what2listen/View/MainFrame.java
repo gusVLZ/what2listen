@@ -15,7 +15,7 @@ public class MainFrame extends JFrame {
         Login login = new Login();
         jf.setContentPane(login.loginView());
 
-        jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setVisible(true);
     }
 

@@ -10,13 +10,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable; 
 
 public class Recomendacoes {
-	public static JFrame RecView() {
+	public static JPanel RecView() {
 
 		// Creating the Frame
-		JFrame frame = new JFrame("Recomendações");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(800, 600);
-
+		JPanel frame = new JPanel();
 		// North panel
 		JPanel northPanel = new JPanel(); // the panel is not visible in output
 		northPanel.setBackground(Color.LIGHT_GRAY);
@@ -92,17 +89,17 @@ public class Recomendacoes {
 		 * centerPanel.add(list);
 		 */
 		// Initialize the list with items
-		/*String[] items = { "A", "B", "C", "D" };
+		/*
+		String[] items = { "A", "B", "C", "D" };
 		for (int i = 0; i < items.length; i++) {
 			model.add(i, items[i]);
 		}
 		centerPanel.add(list);*/
 
 		// Adding Components to the frame.
-		frame.getContentPane().add(BorderLayout.SOUTH, southPanel);
-		frame.getContentPane().add(BorderLayout.NORTH, northPanel);
-		frame.getContentPane().add(BorderLayout.CENTER, centerPanel);
-		frame.setVisible(true);
+		frame.add(BorderLayout.SOUTH, southPanel);
+		frame.add(BorderLayout.NORTH, northPanel);
+		frame.add(BorderLayout.CENTER, centerPanel);
 
 		return frame;
 	}

@@ -11,24 +11,23 @@ import br.usjt.what2listen.Model.SongRate;
 import br.usjt.what2listen.Repository.SongRateRepo;
 import br.usjt.what2listen.Utils.Globals;
 
-
 @RestController
 public class SongRateController {
-	    @Autowired
-	    private SongRateRepo SongRateRepository;
+	@Autowired
+	private SongRateRepo SongRateRepository;
 
-	    @GetMapping("/Songrate")
-	    public List<SongRate> getSongRate() {
-	        return (List<SongRate>) SongRateRepository.findAll();
-	    }
-	    
-	    @PostMapping("/Songrate")
-	    void addSongRate(@RequestBody SongRate songrate) {
-	    	System.out.println(songrate);
-	    	SongRateRepository.save(songrate);
-	    }
+	@GetMapping("/Songrate")
+	public List<SongRate> getSongRate() {
+		return (List<SongRate>) SongRateRepository.findAll();
+	}
 
-		@GetMapping("/topSongRate")
+	@PostMapping("/Songrate")
+	void addSongRate(@RequestBody SongRate songrate) {
+		System.out.println(songrate);
+		SongRateRepository.save(songrate);
+	}
+
+	@GetMapping("/topSongRate")
 	    List<?> getTopSongRate() {
 	    	return (List<?>) SongRateRepository.getBestRatedSongs(Globals.usuarioLogado.getId());
 	    }	    	    
