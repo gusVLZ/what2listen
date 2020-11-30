@@ -5,8 +5,10 @@ import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import javax.swing.JScrollPane; 
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellEditor;
 import javax.swing.text.TableView.TableCell; 
 
@@ -147,6 +149,15 @@ public class Recomendacoes {
 		j.setFont(new Font("Arial", Font.PLAIN, 16));
 		j.setRowHeight(40);
 		j.setDefaultEditor(Object.class, null);
+		j.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+			public void valueChanged(ListSelectionEvent event) {
+				// do some actions here, for example
+				// print first column value from selected row
+				// System.out.println(j.getValueAt(j.getSelectedRow(), 0).toString());
+				MainFrame.jf.setContentPane(Musica.MusicaView());
+				MainFrame.jf.setVisible(true);
+			}
+		});
 		JScrollPane sp = new JScrollPane(j); 
 
 		centerPanel.add(sp);
