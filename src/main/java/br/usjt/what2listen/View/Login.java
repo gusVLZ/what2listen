@@ -18,16 +18,15 @@ import br.usjt.what2listen.Model.UserTable;
 import br.usjt.what2listen.Utils.BeanProvider;
 import br.usjt.what2listen.Utils.Globals;
 
-
 public class Login {
-	
-    @Autowired
+
+	@Autowired
 	private UserController uc;
 
-	public Login(){
-        BeanProvider.autowire(this);
+	public Login() {
+		BeanProvider.autowire(this);
 	}
-	
+
 	public JPanel loginView() {
 		JPanel jp = new JPanel();
 		JPanel left = new JPanel();
@@ -40,7 +39,7 @@ public class Login {
 		JLabel labelMailCad = new JLabel("Email cad:");
 		JTextField labelMailCadF = new JTextField();
 		JLabel labelPasswordCad = new JLabel("Password cad:");
-		JTextField labelPasswordCadF = new JTextField();
+		JPasswordField labelPasswordCadF = new JPasswordField();
 		JLabel labelEmpty1 = new JLabel("");
 		JButton btnCad = new JButton("Cadastrar");
 
@@ -57,18 +56,42 @@ public class Login {
 
 		JPanel right = new JPanel();
 		right.setBorder(new EmptyBorder(60, 60, 60, 60));
-		JLabel tituloLogin = new JLabel ("Login");
+		JLabel tituloLogin = new JLabel("Login");
 		tituloLogin.setFont(new Font("Arial", Font.BOLD, 16));
 		JLabel labelUser = new JLabel("Username:");
 		JTextField txtUserL = new JTextField();
 		JLabel labelPassword = new JLabel("Password :");
-		JPasswordField txtPasswordL = new JPasswordField ();
+		JPasswordField txtPasswordL = new JPasswordField();
 		JLabel labelEmpty = new JLabel("");
-		JButton btnlog = new JButton("Logar");	
+		JButton btnlog = new JButton("Logar");
 
-		btnlog.addActionListener((ActionListener) new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
+		btnCad.addActionListener((ActionListener) new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				UserTable c = new UserTable();
+				c.setUsername(labelUserCadF.getText());
+				c.setPassword(new String(labelPasswordCadF.getPassword()));
+				c.setEmail(labelMailCadF.getText());
+				try {
+					UserTable cl = uc.addCliente(c);
+					
+					if (cl != null && cl.getId() > 0) {
+						JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso.");
+						Globals.usuarioLogado = cl;
+						MainFrame.jf.setContentPane(Menu.menuView());
+						MainFrame.jf.setVisible(true);
+					} else {
+						JOptionPane.showMessageDialog(null, "Não foi possível fazer o cadastro.");
+					}
+				}
+				catch(Exception e2) {
+					JOptionPane.showMessageDialog(null, "Não foi possível fazer o cadastro.");
+				}
+			}
+		});
+
+		btnlog.addActionListener((ActionListener) new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				System.out.println(txtUserL.getText());
 
 				UserTable u = new UserTable();
@@ -76,11 +99,11 @@ public class Login {
 				u.setPassword(new String(txtPasswordL.getPassword()));
 				UserTable ul = uc.login(u);
 
-				if(ul!=null && ul.getId()>0){
+				if (ul != null && ul.getId() > 0) {
 					Globals.usuarioLogado = ul;
 					MainFrame.jf.setContentPane(Menu.menuView());
 					MainFrame.jf.setVisible(true);
-				}else{
+				} else {
 					JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
 				}
 			}
