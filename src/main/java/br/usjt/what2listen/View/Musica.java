@@ -30,7 +30,8 @@ public class Musica {
 		JButton btnMenu = new JButton("Voltar para recomendações");
 		btnMenu.addActionListener((ActionListener) new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MainFrame.jf.setContentPane(Recomendacoes.RecView());
+				Recomendacoes rec = new Recomendacoes();
+				MainFrame.jf.setContentPane(rec.RecView());
 				MainFrame.jf.setVisible(true);
 			}
 		});
