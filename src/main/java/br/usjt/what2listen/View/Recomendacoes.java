@@ -3,7 +3,6 @@ package br.usjt.what2listen.View;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.*;
-import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -12,8 +11,20 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.TableCellEditor;
 import javax.swing.text.TableView.TableCell; 
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.usjt.what2listen.Controller.SongRateController;
+import br.usjt.what2listen.Utils.BeanProvider;
+
 public class Recomendacoes {
-	public static JPanel RecView() {
+    
+	@Autowired
+    private SongRateController sc;
+    
+    public Recomendacoes(){
+		BeanProvider.autowire(this);
+    }
+	public JPanel RecView() {
 
 		// Creating the Frame
 		JPanel frame = new JPanel();
@@ -50,102 +61,14 @@ public class Recomendacoes {
 
 		gbc.gridx = 0;
 		gbc.gridy = 0;
-		JTable j; 
 
-		// Data to be displayed in the JTable 
-        String[][] data = { 
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }, 
-            { "musica 4" },
-            { "musica 1" }, 
-            { "musica 2" }, 
-            { "musica 3" }
-        }; 
+        String[][] dados = sc.getRecomendedSongs();
   
         // Column Names 
-        String[] columnNames = { "Musicas Recomendadas" }; 
+        String[] columnNames = { "Id", "Música", "Artista", "Nota Média" }; 
   
-        /*String[] data = { "musica 1","musica 2","musica 3","musica 4","musica 5","musica 6" }; 
-        String[] columnNames = { "Musicas Recomendadas" }; */
-		j = new JTable(data, columnNames); 
-		j.setSize(200,300);
+		JTable j = new JTable(dados, columnNames); 
+		//j.setSize(200,300);
 		j.setFont(new Font("Arial", Font.PLAIN, 16));
 		j.setRowHeight(40);
 		j.setDefaultEditor(Object.class, null);

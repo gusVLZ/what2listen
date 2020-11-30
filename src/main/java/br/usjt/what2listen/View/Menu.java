@@ -18,6 +18,7 @@ public class Menu {
 		JButton btnGenre = new JButton("Gêneros Favoritos");
 		JLabel labelEmpty = new JLabel("");
 		JLabel labelEmpty1 = new JLabel("");
+		JLabel labelEmpty2 = new JLabel("");
 		JButton btnRec = new JButton("Recomendações");
 		JButton btnLogout = new JButton("Logout");
 
@@ -29,38 +30,33 @@ public class Menu {
 				MainFrame.jf.setVisible(true);
 			}
 		});
-		
-		btnRec.addActionListener((ActionListener) new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{				
-				
-					MainFrame.jf.setContentPane(Recomendacoes.RecView());
 
-
-                MainFrame.jf.setVisible(true);
+		btnRec.addActionListener((ActionListener) new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Recomendacoes rec = new Recomendacoes();
+				MainFrame.jf.setContentPane(rec.RecView());
+				MainFrame.jf.setVisible(true);
 			}
 		});
 
-		btnLogout.addActionListener((ActionListener) new ActionListener(){
-			public void actionPerformed(ActionEvent e)
-			{
-
+		btnLogout.addActionListener((ActionListener) new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				Login l = new Login();
-                MainFrame.jf.setContentPane(l.loginView());
+				MainFrame.jf.setContentPane(l.loginView());
 
-                MainFrame.jf.setVisible(true);
+				MainFrame.jf.setVisible(true);
 			}
 		});
 
-		jp.add(btnGenre);	
-		jp.add(labelEmpty);	
+		jp.add(btnGenre);
+		jp.add(labelEmpty);
 		jp.add(btnRec);
-		jp.add(labelEmpty1);	
+		jp.add(labelEmpty1);
+		jp.add(labelEmpty2);
 		jp.add(btnLogout);
 		jp.setLayout(new GridLayout(11, 1));
 
-
 		return jp;
 	}
-	
+
 }
