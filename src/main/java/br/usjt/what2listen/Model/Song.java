@@ -11,6 +11,8 @@ public class Song {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	private String artist;
+	private String album;
 	private Date created_at;
 	private Date updated_at;
 	private boolean active = true;
@@ -18,9 +20,11 @@ public class Song {
     public Song() {
     }
 
-    public Song(int id, String name, Date created_at, Date updated_at, boolean active) {
+    public Song(int id, String name, String artist, String album, Date created_at, Date updated_at, boolean active) {
         this.id = id;
         this.name = name;
+        this.artist = artist;
+        this.album = album;
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.active = active;
@@ -40,6 +44,22 @@ public class Song {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getArtist() {
+        return this.artist;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public String getAlbum() {
+        return this.album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
     }
 
     public Date getCreated_at() {

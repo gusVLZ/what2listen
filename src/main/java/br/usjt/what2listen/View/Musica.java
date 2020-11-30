@@ -63,27 +63,22 @@ public class Musica {
 		gbc.gridheight = 1;
 
 		gbc.gridx = 0;
-        gbc.gridy = 0;
-        JLabel album = new JLabel("album");
-		centerPanel.add(album);
+		gbc.gridy = 0;
 
-		gbc.gridx = 1;
-        gbc.gridy = 0;
-        JLabel genero = new JLabel("Psedo Pag");
-        centerPanel.add(genero);
+		centerPanel.add(Components.title("Artista: " + s.getArtist(), Font.PLAIN, 24), gbc);		
 
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+		centerPanel.add(Components.title("Gêneros: " + s.getName(), Font.PLAIN, 24), gbc);
 
-        gbc.gridx = 2;
-        gbc.gridy = 0;
-        JLabel rate = new JLabel("Media");
-        centerPanel.add(rate);
+		gbc.gridx = 0;
+        gbc.gridy = 2;
+		centerPanel.add(Components.title("Média de Avaliações: " + s.getName(), Font.PLAIN, 24), gbc);		
 
-		//ImageIcon icon = new ImageIcon(getClass().getResource("penguin.png")); só da pra colocar se a classe não for estatica
-        
-        //JLabel label = new JLabel("aqui vai o penguin");
-
-
-		//centerPanel.add(label);
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.weighty=6;
+		centerPanel.add(Components.title("Avaliação Aqui", Font.PLAIN, 24), gbc);
 
 		//centerPanel.add(Components.title("Aqui vai uma imagem", Font.PLAIN, 16), gbc);
 
