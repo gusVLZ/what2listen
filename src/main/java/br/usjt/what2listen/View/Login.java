@@ -24,6 +24,7 @@ public class Login {
 	private UserController uc;
 
 	public Login() {
+		MainFrame.jf.setTitle("Login - What2Listen");
 		BeanProvider.autowire(this);
 	}
 
@@ -40,7 +41,6 @@ public class Login {
 		JTextField labelMailCadF = new JTextField();
 		JLabel labelPasswordCad = new JLabel("Password cad:");
 		JPasswordField labelPasswordCadF = new JPasswordField();
-		JLabel labelEmpty1 = new JLabel("");
 		JButton btnCad = new JButton("Cadastrar");
 
 		left.add(tituloCadastro);
@@ -50,7 +50,7 @@ public class Login {
 		left.add(labelMailCadF);
 		left.add(labelPasswordCad);
 		left.add(labelPasswordCadF);
-		left.add(labelEmpty1);
+		left.add(new JLabel(""));
 		left.add(btnCad);
 		left.setLayout(new GridLayout(9, 1));
 
@@ -62,7 +62,6 @@ public class Login {
 		JTextField txtUserL = new JTextField("gusVLZ");
 		JLabel labelPassword = new JLabel("Password :");
 		JPasswordField txtPasswordL = new JPasswordField("123456");
-		JLabel labelEmpty = new JLabel("");
 		JButton btnlog = new JButton("Logar"); 
 
 		btnCad.addActionListener((ActionListener) new ActionListener() {
@@ -114,7 +113,9 @@ public class Login {
 		right.add(txtUserL);
 		right.add(labelPassword);
 		right.add(txtPasswordL);
-		right.add(labelEmpty);
+		right.add(new JLabel(""));
+		right.add(new JLabel(""));
+		right.add(new JLabel(""));
 		right.add(btnlog);
 		right.setLayout(new GridLayout(9, 1));
 

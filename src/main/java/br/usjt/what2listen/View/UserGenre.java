@@ -30,6 +30,7 @@ public class UserGenre {
     private GenreController gc;
 
     public UserGenre() {
+		MainFrame.jf.setTitle("Gêneros - What2Listen");
         BeanProvider.autowire(this);
     }
 
