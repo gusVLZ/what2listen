@@ -67,9 +67,8 @@ public class UserController {
 	@PostMapping("/RemoveFavGenre/{idGenre}")
 	public boolean remFavGenre(@PathVariable(value="idGenre") int idGenre){
 		UserGenre ug = ugRepository.getUserGenreByGenreId(Globals.usuarioLogado.getId(), idGenre);
-		ug.active(false);
 		try{
-			ugRepository.save(ug);
+			ugRepository.delete(ug);
 			return true;
 		}catch(Exception e){
 			throw new GenericError(e);
