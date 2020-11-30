@@ -37,9 +37,9 @@ public class Login {
 		JLabel labelUserCad = new JLabel("Username cad:");
 		JTextField labelUserCadF = new JTextField();
 		JLabel labelMailCad = new JLabel("Email cad:");
-		JTextField labelMailCadF = new JTextField();
+		JTextField labelMailCadF = new JTextField("gusVLZ");
 		JLabel labelPasswordCad = new JLabel("Password cad:");
-		JPasswordField labelPasswordCadF = new JPasswordField();
+		JPasswordField labelPasswordCadF = new JPasswordField("123456");
 		JLabel labelEmpty1 = new JLabel("");
 		JButton btnCad = new JButton("Cadastrar");
 

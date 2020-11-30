@@ -1,6 +1,5 @@
 package br.usjt.what2listen.View;
 
-import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.*;
@@ -62,7 +61,8 @@ public class Recomendacoes {
         /*String[] data = { "musica 1","musica 2","musica 3","musica 4","musica 5","musica 6" }; 
         String[] columnNames = { "Musicas Recomendadas" }; */
 		j = new JTable(data, columnNames); 
-        j.setBounds(30, 40, 200, 300); 
+		j.setBounds(30, 40, 200, 300); 
+		j.setDefaultEditor(Object.class, null);
 		JScrollPane sp = new JScrollPane(j); 
 
 		centerPanel.add(sp);
