@@ -3,12 +3,9 @@ package br.usjt.what2listen.View;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.*;
-import javax.swing.*;
 import java.awt.event.*;
 import javax.swing.JScrollPane; 
 import javax.swing.JTable;
-import javax.swing.table.TableCellEditor;
-import javax.swing.text.TableView.TableCell; 
 
 public class Recomendacoes {
 	public static JPanel RecView() {

@@ -18,7 +18,6 @@ import br.usjt.what2listen.Repository.GenreRepo;
 import br.usjt.what2listen.Repository.UserGenreRepo;
 import br.usjt.what2listen.Repository.UserRepo;
 
-
 @RestController
 public class UserController {
 	@Autowired
