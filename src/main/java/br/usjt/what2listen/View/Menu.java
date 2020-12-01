@@ -1,9 +1,16 @@
 package br.usjt.what2listen.View;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,8 +22,11 @@ public class Menu {
 		MainFrame.jf.setTitle("Dashboard - What2Listen");
 
 		JPanel jp = new JPanel();
-		jp.setBorder(new EmptyBorder(200, 60, 0, 60));
-		jp.setBackground(Color.lightGray);
+		jp.setBorder(new EmptyBorder(60, 60, 60, 60));
+		//jp.setBackground(Color.lightGray);
+		jp.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+
 		JButton btnGenre = new JButton("Gêneros Favoritos");
 		JButton btnRec = new JButton("Recomendações");
 		JButton btnLogout = new JButton("Logout");
@@ -47,13 +57,40 @@ public class Menu {
 			}
 		});
 
-		jp.add(btnGenre);
-		jp.add(new JLabel(""));
-		jp.add(btnRec);
-		jp.add(new JLabel(""));
-		jp.add(new JLabel(""));
-		jp.add(btnLogout);
-		jp.setLayout(new GridLayout(11, 1));
+
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.insets = new Insets(15, 15, 15, 15);
+
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth=2;
+
+		java.net.URL url = ClassLoader.getSystemResource("br/usjt/what2listen/Lib/W2LNBG.png/");
+        Toolkit kit = Toolkit.getDefaultToolkit();
+		Image img = kit.createImage(url);
+		JLabel picLabel = new JLabel(new ImageIcon(img.getScaledInstance(300, 214, Image.SCALE_SMOOTH)));
+		jp.add(picLabel, gbc);
+		gbc.gridwidth=1;
+
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.weightx = 1.0;
+		gbc.weighty = 3.0;
+		jp.add(btnGenre, gbc);
+
+		gbc.gridx = 1;
+		jp.add(btnRec, gbc);
+		
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.weighty = 1.0;
+		gbc.gridwidth=2;
+		jp.add(btnLogout, gbc);
 
 		return jp;
 	}
