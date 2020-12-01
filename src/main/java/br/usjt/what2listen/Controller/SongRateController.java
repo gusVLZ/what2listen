@@ -36,4 +36,9 @@ public class SongRateController {
 	public List<?> getBestRatedSongs() {
 		return (List<?>) SongRateRepository.getBestRatedSongs();
 	}
+	
+	@GetMapping("/getRateByIdSong")
+	public List<?> getRateByIdSong(int idSong) {
+		return (List<?>) SongRateRepository.getRateByIdSong(idSong);
+	}
 }

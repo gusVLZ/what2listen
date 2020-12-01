@@ -17,4 +17,5 @@ public interface SongGenreRepo extends CrudRepository<SongGenre, Integer> {
 	List<SongGenre> getSongGenres(int idSong);
 	@Query(value="select gr.* from song_x_genre as uxg inner join Genre as gr on uxg.id_Genre = gr.id where uxg.id_Song = ?1 and uxg.active=1 and gr.active=1", nativeQuery = true)
     List<Genre> getGenreById(int idSong);
+	
 }
