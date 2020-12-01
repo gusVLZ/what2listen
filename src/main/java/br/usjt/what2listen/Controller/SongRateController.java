@@ -38,7 +38,7 @@ public class SongRateController {
 	}
 	
 	@GetMapping("/getRateByIdSong")
-	public List<?> getRateByIdSong(int idSong) {
-		return (List<?>) SongRateRepository.getRateByIdSong(idSong);
+	public String getRateByIdSong(int idSong) {
+		return (String) SongRateRepository.getRateByIdSong(idSong);
 	}
 }

@@ -34,6 +34,6 @@ public interface SongRateRepo extends CrudRepository<SongRate, Integer> {
 	@Query(value = "select s.* from songs inner join song_rate sr on sr.id_song = s.id order by sr.avg(rate) limit by 10", nativeQuery = true)
 	List<?> getBestRatedSongs();
 	
-	@Query(value = "select avg(Rate) from SongRate where id_Song = ?1", nativeQuery = true)
-	List<?> getRateByIdSong(int idSong);
+	@Query(value = "select avg(Rate) from Song_Rate where id_Song = ?1", nativeQuery = true)
+	String getRateByIdSong(int idSong);
 }

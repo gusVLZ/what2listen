@@ -141,4 +141,8 @@ public class Song {
             ", active='" + isActive() + "'" +
             "}";
     }
+
+	public Song getGenreByIdSong(int idSong) {
+		return null;
+	}
 }
