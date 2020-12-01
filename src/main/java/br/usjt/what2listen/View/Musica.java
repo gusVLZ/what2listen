@@ -79,7 +79,7 @@ public class Musica {
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 
-		centerPanel.add(Components.title("Artista: " + s.getArtist(), Font.PLAIN, 24), gbc);
+		centerPanel.add(Components.title("Artista: " + s.getArtist(), Font.PLAIN, 22), gbc);
 
 		gbc.gridx = 0;
 		gbc.gridy = 1;
@@ -88,11 +88,12 @@ public class Musica {
 		for (Genre genre : sg) {
 			gen += genre.getName() + ", ";
 		}
-		gen = gen.substring(0, gen.length() - 1);
+		gen = gen.substring(0, gen.length() - 2);
 		centerPanel.add(Components.title("Gêneros: " + gen, Font.PLAIN, 22), gbc);
 
 		gbc.gridx = 0;
 		gbc.gridy = 2;
+		rate = rate == null ? "Não avaliado" : rate;
 		centerPanel.add(Components.title("Média de Avaliações: " + rate, Font.PLAIN, 22), gbc);
 
 		gbc.gridx = 0;
@@ -103,14 +104,13 @@ public class Musica {
 		gbc.gridy = 4;
 		JPanel avaPanel = new JPanel();
 		for (int i = 1; i < 6; i++) {
-			
+
 			AvaButtonAction aba = new AvaButtonAction();
 			avaPanel.add(aba.avaButton(i, s.getId()));
 		}
 		avaPanel.setLayout(new GridLayout(1, 5, 10, 10));
 
 		centerPanel.add(avaPanel, gbc);
-
 
 		// Adding Components to the frame.
 		frame.add(BorderLayout.SOUTH, southPanel);
@@ -120,20 +120,21 @@ public class Musica {
 		return frame;
 	}
 
-
 	class AvaButtonAction implements ActionListener {
-        private int rate = 0;
-        private int idSong = 0;
-        public JButton avaButton(int rate2, int idSong2){
-            rate=rate2;
-            idSong=idSong2;
-            JButton btn = new JButton(new ImageIcon(GetFiles.getImage("imgs/musical-notes.png").getScaledInstance(30+(rate*7), 30+(rate*7), Image.SCALE_SMOOTH)));
-            btn.addActionListener(this);
-            return btn;
-        }
+		private int rate = 0;
+		private int idSong = 0;
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
+		public JButton avaButton(int rate2, int idSong2) {
+			rate = rate2;
+			idSong = idSong2;
+			JButton btn = new JButton(new ImageIcon(GetFiles.getImage("imgs/musical-notes.png")
+					.getScaledInstance(30 + (rate * 7), 30 + (rate * 7), Image.SCALE_SMOOTH)));
+			btn.addActionListener(this);
+			return btn;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
 			SongRate sr = new SongRate(Globals.usuarioLogado.getId(), idSong, rate);
 
 			try {
@@ -150,7 +151,7 @@ public class Musica {
 			} catch (Exception e2) {
 				JOptionPane.showMessageDialog(null, "Não foi possível realizar a avaliação.");
 			}
-        }
-    }
+		}
+	}
 
 }
