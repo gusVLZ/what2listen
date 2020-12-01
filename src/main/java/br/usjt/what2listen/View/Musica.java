@@ -47,6 +47,7 @@ public class Musica {
 				MainFrame.jf.setVisible(true);
 			}
 		});
+		
 		southPanel.add(btnMenu);
 
 		// Text Area at the Center
