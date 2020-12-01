@@ -82,11 +82,12 @@ public class Musica {
 		for (Genre genre : sg) { 
 			gen += genre.getName() + ", ";
 			 }
-		gen = gen.substring(0, gen.length()-1);
+		gen = gen.substring(0, gen.length()-2);
 		centerPanel.add(Components.title("Gêneros: " + gen, Font.PLAIN, 24), gbc);
 
 		gbc.gridx = 0;
-        gbc.gridy = 2;
+		gbc.gridy = 2;
+		rate = rate == null ? "Não avaliado" : rate;
 		centerPanel.add(Components.title("Média de Avaliações: " + rate , Font.PLAIN, 24), gbc);		
 
 		gbc.gridx = 0;
