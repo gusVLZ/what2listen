@@ -128,7 +128,7 @@ public class Musica {
 			rate = rate2;
 			idSong = idSong2;
 			JButton btn = new JButton(new ImageIcon(GetFiles.getImage("imgs/musical-notes.png")
-					.getScaledInstance(30 + (rate * 7), 30 + (rate * 7), Image.SCALE_SMOOTH)));
+					.getScaledInstance(20 + (rate * 10), 20 + (rate * 10), Image.SCALE_SMOOTH)));
 			btn.addActionListener(this);
 			return btn;
 		}
