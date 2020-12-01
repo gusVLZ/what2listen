@@ -96,13 +96,18 @@ public class Login {
 				UserTable u = new UserTable();
 				u.setUsername(txtUserL.getText());
 				u.setPassword(new String(txtPasswordL.getPassword()));
-				UserTable ul = uc.login(u);
-
-				if (ul != null && ul.getId() > 0) {
-					Globals.usuarioLogado = ul;
-					MainFrame.jf.setContentPane(Menu.menuView());
-					MainFrame.jf.setVisible(true);
-				} else {
+				try {
+					UserTable ul = uc.login(u);
+					
+					if (ul != null && ul.getId() > 0) {
+						Globals.usuarioLogado = ul;
+						MainFrame.jf.setContentPane(Menu.menuView());
+						MainFrame.jf.setVisible(true);
+					} else {
+						JOptionPane.showMessageDialog(null, "Não foi possível fazer o cadastro.");
+					}
+				}
+				catch(Exception e2) {
 					JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos");
 				}
 			}

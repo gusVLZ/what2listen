@@ -21,6 +21,14 @@ public class SongRate {
 
 	}
 
+	public SongRate(Integer id_user, Integer id_song, Integer rate) {
+		super();
+		this.id_user = id_user;
+		this.id_song = id_song;
+		this.rate = rate;
+	}
+
+
 	public SongRate(Integer id, Integer id_user, Integer id_song, Integer rate, boolean active, Date created_at, Date updated_at) {
 		super();
 		this.id = id;

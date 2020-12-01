@@ -24,6 +24,7 @@ public class What2listenApplication {
 		loading = new JFrame();
 		loading.setLocationRelativeTo(null);
 		
+		loading.setUndecorated(true);
         loading.setIconImage(GetFiles.getImage("imgs/SEM_FUNDO.png"));
 		JPanel panel = new JPanel();
 
