@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import br.usjt.what2listen.Model.Genre;
 import br.usjt.what2listen.Model.SongGenre;
-import br.usjt.what2listen.Model.UserGenre;
 
 @Repository
 public interface SongGenreRepo extends CrudRepository<SongGenre, Integer> {
