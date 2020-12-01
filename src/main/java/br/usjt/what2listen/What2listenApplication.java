@@ -17,6 +17,7 @@ public class What2listenApplication {
 		Globals.usuarioLogado = new UserTable(1, "gusVLZ", "gvnv.2000@gmail.com", "123456");
 		builder.headless(false);
 		builder.run(args);
+
         SwingUtilities.invokeLater(() -> {
             new MainFrame();
         });

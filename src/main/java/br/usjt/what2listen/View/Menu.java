@@ -7,12 +7,13 @@ import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.border.EmptyBorder;
+
+import br.usjt.what2listen.Utils.GetFiles;
 
 public class Menu {
 	public static JPanel menuView() {
@@ -68,10 +69,11 @@ public class Menu {
 		gbc.gridy = 0;
 		gbc.gridwidth=2;
 
-		java.net.URL url = ClassLoader.getSystemResource("br/usjt/what2listen/Lib/W2LNBG.png/");
-        Toolkit kit = Toolkit.getDefaultToolkit();
-		Image img = kit.createImage(url);
-		JLabel picLabel = new JLabel(new ImageIcon(img.getScaledInstance(300, 214, Image.SCALE_SMOOTH)));
+		JLabel picLabel = new JLabel(
+			new ImageIcon(
+				GetFiles.getImage("imgs/W2LNBG.png").getScaledInstance(300, 214, Image.SCALE_SMOOTH)
+			)
+		);
 		jp.add(picLabel, gbc);
 		gbc.gridwidth=1;
 
