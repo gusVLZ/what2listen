@@ -35,11 +35,11 @@ public class Login {
 		left.setBackground(Color.lightGray);
 		JLabel tituloCadastro = new JLabel("Cadastro");
 		tituloCadastro.setFont(new Font("Arial", Font.BOLD, 16));
-		JLabel labelUserCad = new JLabel("Username cad:");
+		JLabel labelUserCad = new JLabel("Username:");
 		JTextField labelUserCadF = new JTextField();
-		JLabel labelMailCad = new JLabel("Email cad:");
+		JLabel labelMailCad = new JLabel("Email:");
 		JTextField labelMailCadF = new JTextField();
-		JLabel labelPasswordCad = new JLabel("Password cad:");
+		JLabel labelPasswordCad = new JLabel("Password:");
 		JPasswordField labelPasswordCadF = new JPasswordField();
 		JButton btnCad = new JButton("Cadastrar");
 
@@ -59,9 +59,9 @@ public class Login {
 		JLabel tituloLogin = new JLabel("Login");
 		tituloLogin.setFont(new Font("Arial", Font.BOLD, 16));
 		JLabel labelUser = new JLabel("Username:");
-		JTextField txtUserL = new JTextField("gusVLZ");
+		JTextField txtUserL = new JTextField();
 		JLabel labelPassword = new JLabel("Password :");
-		JPasswordField txtPasswordL = new JPasswordField("123456");
+		JPasswordField txtPasswordL = new JPasswordField();
 		JButton btnlog = new JButton("Logar"); 
 
 		btnCad.addActionListener((ActionListener) new ActionListener() {
