@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 import br.usjt.what2listen.Model.Genre;
 import br.usjt.what2listen.Model.SongGenre;
 import br.usjt.what2listen.Repository.SongGenreRepo;
+import br.usjt.what2listen.Repository.GenreRepo;
 
 @RestController
 public class SongGenreController {
 	@Autowired
 	private SongGenreRepo songGenreRepository;
+	@Autowired
+	private GenreRepo genreRepository;
 
 	@GetMapping("/SongGenre")
 	public List<SongGenre> getSongGenre() {
@@ -22,6 +25,6 @@ public class SongGenreController {
 	
 	@GetMapping("/getGenreByIdSong")
 	public List<Genre> getGenreByIdSong(int idSong) {
-		return (List<Genre>) songGenreRepository.getGenreById(idSong);
+		return (List<Genre>) genreRepository.getGenreById(idSong);
 	}
 }
