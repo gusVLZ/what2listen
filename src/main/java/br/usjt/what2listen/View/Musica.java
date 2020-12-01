@@ -80,7 +80,7 @@ public class Musica {
 		//centerPanel.add(Components.title("Gêneros: ", Font.PLAIN, 24), gbc);
 		String gen = "";
 		for (Genre genre : sg) { 
-			gen += genre.getName() + ",";
+			gen += genre.getName() + ", ";
 			 }
 		gen = gen.substring(0, gen.length()-1);
 		centerPanel.add(Components.title("Gêneros: " + gen, Font.PLAIN, 24), gbc);
