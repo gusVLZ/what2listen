@@ -20,6 +20,7 @@ public class Recomendacoes {
     private SongRateController sc;
     
     public Recomendacoes(){
+		MainFrame.jf.setTitle("Recomendações - What2Listen");
 		BeanProvider.autowire(this);
     }
 	public JPanel RecView() { 

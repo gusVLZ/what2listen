@@ -11,7 +11,6 @@ import br.usjt.what2listen.Model.Song;
 import br.usjt.what2listen.Utils.BeanProvider;
 
 import java.awt.*;
-import javax.swing.*;
 import java.awt.event.*;
 
 public class Musica {
